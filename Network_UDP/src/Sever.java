@@ -9,10 +9,14 @@
  * @author Nhan
  */
 public class Sever extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Sever
-     */
+    char pf[][]={{'M','O','N','A','R'},
+                 {'C','H','Y','B','D'},
+                 {'E','F','G','I','K'},
+                 {'L','P','Q','S','T'},
+                 {'U','V','W','X','Z'}
+    };
+ 
+    
     public Sever() {
         initComponents();
     }
@@ -29,14 +33,14 @@ public class Sever extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtbmserver = new javax.swing.JTextField();
+        btngmserver = new javax.swing.JButton();
+        btntimkitu = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtbrserver = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        txtvitriserver = new javax.swing.JTextField();
+        btngui = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,48 +51,48 @@ public class Sever extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Bản mã:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtbmserver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtbmserverActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Mã hoá");
-        jButton1.setActionCommand("");
-        jButton1.setName("btnChonFile"); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btngmserver.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btngmserver.setText("Giải mã");
+        btngmserver.setActionCommand("");
+        btngmserver.setName("btnChonFile"); // NOI18N
+        btngmserver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btngmserverActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Tìm ký tự");
-        jButton2.setName("btnChonFile"); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btntimkitu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btntimkitu.setText("Tìm ký tự");
+        btntimkitu.setName("btnChonFile"); // NOI18N
+        btntimkitu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btntimkituActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Bản rõ:");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtbrserver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtbrserverActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Vị trí xuất hiện:");
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setLabel("Gửi về Client");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btngui.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btngui.setLabel("Gửi về Client");
+        btngui.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnguiActionPerformed(evt);
             }
         });
 
@@ -109,28 +113,28 @@ public class Sever extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtbmserver, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGap(34, 34, 34)
                                     .addComponent(jLabel4)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtbrserver, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtvitriserver, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(378, 378, 378)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btngmserver, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(89, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btntimkitu, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(376, 376, 376))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(btngui)
                         .addGap(375, 375, 375))))
         );
         layout.setVerticalGroup(
@@ -142,48 +146,100 @@ public class Sever extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtbmserver, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btngmserver, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(75, 75, 75))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtbrserver, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btntimkitu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtvitriserver, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                .addComponent(btngui, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+   private String timViTri(char a){
+        for (int i = 0; i < 5; i++) 
+            for (int j = 0; j < 5; j++) 
+                if(pf[i][j]==a)
+                    return i+""+j;
+        return "";
+    }   
+    private void txtbmserverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbmserverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_txtbmserverActionPerformed
+    
+    private void btngmserverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngmserverActionPerformed
+        String banma=this.txtbmserver.getText();
+        String banro=giaima(banma);
+        int n=banro.length();
+        String br ="";
+        for(int i=0; i<n-2; i+=2)
+            if(banro.charAt(i)==banro.charAt(i+2))
+                br+=banro.charAt(i);
+            else
+                br+=banro.charAt(i)+ "" +banro.charAt(i+1);
+        if(banro.charAt(n-1) == 'X')
+            br+=banro.charAt(n-2);
+        else
+            br+=banro.charAt(n-2);  br+=banro.charAt(n-1);
+        this.txtbrserver.setText(br);
+    }//GEN-LAST:event_btngmserverActionPerformed
+        String thaytheNguoc(char a, char b)
+    {
+        String vta=timViTri(a);
+        String vtb=timViTri(b);
+        char x, y;
+        if(vta.charAt(0)==vtb.charAt(0)) //cung dong
+        {
+            x=pf[vta.charAt(0)-'0'][((vta.charAt(1)-'0')-1+5)%5];
+            y=pf[vtb.charAt(0)-'0'][((vtb.charAt(1)-'0')-1+5)%5];
+            return x+""+y;
+        }
+        if(vta.charAt(1)==vtb.charAt(1))
+        {
+            x=pf[((vta.charAt(0)-'0')-1+5)%5][(vta.charAt(1)-'0')];
+            y=pf[((vtb.charAt(0)-'0')-1+5)%5][(vtb.charAt(1)-'0')];
+            return x+""+y;
+        }
+        x=pf[(vta.charAt(0)-'0')][(vtb.charAt(1)-'0')];
+        y=pf[(vtb.charAt(0)-'0')][(vta.charAt(1)-'0')];
+        return x+""+y;
+    }
+    
+    private String giaima(String banma){
+        int n=banma.length();
+        String banro="";
+        char a,b;
+        for (int i = 0; i < n; i+=2) {
+            a=banma.charAt(i);
+            b=banma.charAt(i+1);
+            //thay the trong ban playfair
+            banro+=thaytheNguoc(a, b);
+        }
+        return banro;
+    }
+    private void btntimkituActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntimkituActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btntimkituActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void txtbrserverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbrserverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_txtbrserverActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void btnguiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnguiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,16 +277,16 @@ public class Sever extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btngmserver;
+    private javax.swing.JButton btngui;
+    private javax.swing.JButton btntimkitu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtbmserver;
+    private javax.swing.JTextField txtbrserver;
+    private javax.swing.JTextField txtvitriserver;
     // End of variables declaration//GEN-END:variables
 }

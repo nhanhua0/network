@@ -10,9 +10,12 @@
  */
 public class Client extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main
-     */
+     char pf[][]={{'M','O','N','A','R'},
+                 {'C','H','Y','B','D'},
+                 {'E','F','G','I','K'},
+                 {'L','P','Q','S','T'},
+                 {'U','V','W','X','Z'}
+    };
     public Client() {
         initComponents();
     }
@@ -28,16 +31,16 @@ public class Client extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtbrclient = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtkhoaclient = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btntraodoi = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        txtbmclient = new javax.swing.JTextField();
+        btnmhclient = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtvitricl = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,9 +51,9 @@ public class Client extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Văn Bản:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtbrclient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtbrclientActionPerformed(evt);
             }
         });
 
@@ -66,21 +69,26 @@ public class Client extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Trao đổi khoá với Sever");
-        jButton2.setName("btnTraodoikey"); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btntraodoi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btntraodoi.setText("Trao đổi khoá với Sever");
+        btntraodoi.setName("btnTraodoikey"); // NOI18N
+        btntraodoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btntraodoiActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Bản mã:");
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setText("Mã hoá");
-        jButton3.setActionCommand("");
+        btnmhclient.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnmhclient.setText("Mã hoá");
+        btnmhclient.setActionCommand("");
+        btnmhclient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmhclientActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Vị trí xuất hiện:");
@@ -95,7 +103,7 @@ public class Client extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(13, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -109,17 +117,17 @@ public class Client extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton2)
+                                        .addComponent(btntraodoi)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnmhclient, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(txtkhoaclient, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtbmclient, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtvitricl, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtbrclient, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(101, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -134,50 +142,111 @@ public class Client extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtbrclient, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtkhoaclient, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btntraodoi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnmhclient, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtbmclient, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtvitricl, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jLabel2.getAccessibleContext().setAccessibleName("Văn Bản:");
         jLabel4.getAccessibleContext().setAccessibleName("Khoá");
-        jButton3.getAccessibleContext().setAccessibleName("Mã hoá");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private String timViTri(char a){
+        for (int i = 0; i < 5; i++) 
+            for (int j = 0; j < 5; j++) 
+                if(pf[i][j]==a)
+                    return i+""+j;
+        return "";
+    }
+    
+    String thayThe(char a, char b)
+    {
+        String vta=timViTri(a);
+        String vtb=timViTri(b);
+        char x,y;
+        if(vta.charAt(0) == vtb.charAt(0)) //cung dong
+        {
+            x = pf[vta.charAt(0)-'0'][((vta.charAt(1)-'0')+1)%5];
+            y = pf[vtb.charAt(0)-'0'][((vtb.charAt(1)-'0')+1)%5];
+            return x+""+y;
+        }
+        if(vta.charAt(1) == vtb.charAt(1)) //cung dong
+        {
+           x = pf[((vta.charAt(0)-'0')+1)%5][(vta.charAt(1)-'0')];
+           y = pf[((vtb.charAt(0)-'0')+1)%5][(vtb.charAt(1)-'0')];
+           return x+""+y;
+        }
+        x = pf[(vta.charAt(0)-'0')][(vtb.charAt(1)-'0')];
+        y = pf[(vtb.charAt(0)-'0')][(vta.charAt(1)-'0')];
+        return x+""+y;
+    }
+    
+     private String mahoa(String banro){
+        int n = banro.length();
+        int i = 0;
+        String banma="";
+        char a,b;
+        while(i<n)
+        {
+            if(i==n-1)
+            {
+                a=banro.charAt(i);
+                b='X';
+                i++;
+            }else{
+                a=banro.charAt(i);
+                b=banro.charAt(i+1);
+                
+                if(a==b)
+                {
+                    b='X';
+                    i++;
+                }else
+                    i+=2;
+            }
+            //thay the trong ban playfair
+            banma+=thayThe(a, b);
+        }
+        return banma;
+    }
+    private void txtbrclientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbrclientActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtbrclientActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btntraodoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntraodoiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btntraodoiActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnmhclientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmhclientActionPerformed
+        String banro = this.txtbrclient.getText();
+        banro=banro.toUpperCase();
+        banro=banro.replace('J', 'I');
+        String banma = mahoa(banro);
+        this.txtbmclient.setText(banma);
+    }//GEN-LAST:event_btnmhclientActionPerformed
+
+  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -212,17 +281,17 @@ public class Client extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnmhclient;
+    private javax.swing.JButton btntraodoi;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtbmclient;
+    private javax.swing.JTextField txtbrclient;
+    private javax.swing.JTextField txtkhoaclient;
+    private javax.swing.JTextField txtvitricl;
     // End of variables declaration//GEN-END:variables
 }
