@@ -219,8 +219,16 @@ public class Sever extends javax.swing.JFrame {
                 table = playFairCipher.cipherTable(key);
                 String outPut = txtBanMa.getText();
                 String banRo = playFairCipher.decode(outPut);
+                String lastStringAfterSplit = "";
+                if (banRo.charAt(banRo.length() - 1) == 'X') {
+                    lastStringAfterSplit = banRo.substring(0, banRo.length() - 1);
 
-                txtBanRo.setText(banRo);
+                } else {
+
+                    lastStringAfterSplit = banRo;
+                }
+
+                txtBanRo.setText(lastStringAfterSplit);
 
                 ///Tìm vị trí///
                 TimViTri timViTri = new TimViTri();
