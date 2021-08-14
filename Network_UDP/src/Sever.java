@@ -1,7 +1,10 @@
 
+import Service.PlayFairCipher;
+import Service.TimViTri;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -33,12 +36,16 @@ public class Sever extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtBM = new javax.swing.JTextField();
+        txtBanMa = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtBanRo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtViTri = new javax.swing.JTextField();
         BtnGuiClient = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtKhoa = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtTuKhoa = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,18 +56,18 @@ public class Sever extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Bản mã:");
 
-        txtBM.addActionListener(new java.awt.event.ActionListener() {
+        txtBanMa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBMActionPerformed(evt);
+                txtBanMaActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Bản rõ:");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtBanRo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtBanRoActionPerformed(evt);
             }
         });
 
@@ -75,36 +82,51 @@ public class Sever extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("Khoá:");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("Từ Khoá");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(362, 362, 362)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(41, 41, 41)
+                            .addComponent(jLabel4))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtBanRo, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtViTri, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtBanMa, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtBM, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(34, 34, 34)
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(360, 360, 360)
-                        .addComponent(BtnGuiClient)))
+                                    .addComponent(jLabel7)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtTuKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(362, 362, 362)
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(31, 31, 31)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(365, 365, 365)
+                            .addComponent(BtnGuiClient))))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -114,35 +136,40 @@ public class Sever extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBanMa, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtBM, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                    .addComponent(jLabel6)
+                    .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTuKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBanRo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(118, 118, 118))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtViTri, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtnGuiClient, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
+                .addComponent(BtnGuiClient, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtBMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBMActionPerformed
+    private void txtBanMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBanMaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBMActionPerformed
+    }//GEN-LAST:event_txtBanMaActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtBanRoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBanRoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtBanRoActionPerformed
 
     private void BtnGuiClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuiClientActionPerformed
         try {
@@ -150,25 +177,70 @@ public class Sever extends javax.swing.JFrame {
                 DatagramSocket datagramSocket = new DatagramSocket(5432);
 
                 // đưa này vào trong while
-                byte[] readBuffer = new byte[1024];
+                byte[] readBufferBanMa = new byte[1024];
+
+                byte[] readBufferKhoa = new byte[1024];
+
+                byte[] readBufferTuKhoa = new byte[1024];
+
                 byte[] writeBuffer = new byte[1024];
 
-                DatagramPacket receivePacket = new DatagramPacket(readBuffer, readBuffer.length);
+                DatagramPacket receivePacketBanMa = new DatagramPacket(readBufferBanMa, readBufferBanMa.length);
+                DatagramPacket receivePacketKhoa = new DatagramPacket(readBufferKhoa, readBufferKhoa.length);
+                DatagramPacket receivePacketTuKhoa = new DatagramPacket(readBufferTuKhoa, readBufferTuKhoa.length);
 
-                datagramSocket.receive(receivePacket);
+                datagramSocket.receive(receivePacketBanMa);
+                datagramSocket.receive(receivePacketKhoa);
+                datagramSocket.receive(receivePacketTuKhoa);
 
-                String line = new String(receivePacket.getData()).trim();
+                String lineBanMa = new String(receivePacketBanMa.getData()).trim();
+                String lineKhoa = new String(receivePacketKhoa.getData()).trim();
+                String lineTuKhoa = new String(receivePacketTuKhoa.getData()).trim();
 
-                txtBM.setText(line);
+                txtBanMa.setText(lineBanMa);
+                txtKhoa.setText(lineKhoa);
+                txtTuKhoa.setText(lineTuKhoa);
 
-                System.out.println("dữ liệu nhận: " + line);
+                System.out.println("Ban Ma: " + lineBanMa);
+                System.out.println("Khoa: " + lineKhoa);
+                System.out.println("Tu khoa: " + lineTuKhoa);
+                /////Giải mã/////
+
+                PlayFairCipher playFairCipher = new PlayFairCipher();
+                String[][] table;
+
+                String key = playFairCipher.parseString(txtKhoa.getText());
+                System.out.println("khoa" + txtKhoa);
+                if (key == "") {
+                    JOptionPane.showMessageDialog(null, "please input key!");
+                }
+
+                ///
+                table = playFairCipher.cipherTable(key);
+                String outPut = txtBanMa.getText();
+                String banRo = playFairCipher.decode(outPut);
+
+                txtBanRo.setText(banRo);
+
+                ///Tìm vị trí///
+                TimViTri timViTri = new TimViTri();
+
+                String tuKhoa = playFairCipher.parseString(txtTuKhoa.getText());
+
+                String chuoiViTri = timViTri.TimViTri(banRo, tuKhoa);
+
+                if (chuoiViTri == null) {
+                    JOptionPane.showMessageDialog(null, "Empty Position!");
+                } else {
+                    txtViTri.setText(chuoiViTri);
+                }
 
                 // bỏ cái writeBuffer này
                 //writeBuffer = line.getBytes();
-                InetAddress host = receivePacket.getAddress();
-                int port = receivePacket.getPort();
-                
-                writeBuffer = txtBM.getText().getBytes();
+                InetAddress host = receivePacketBanMa.getAddress();
+                int port = receivePacketBanMa.getPort();
+
+                writeBuffer = txtViTri.getText().getBytes();
 
                 DatagramPacket sendPacket = new DatagramPacket(writeBuffer, writeBuffer.length, host, port);
                 datagramSocket.send(sendPacket);
@@ -222,8 +294,12 @@ public class Sever extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField txtBM;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField txtBanMa;
+    private javax.swing.JTextField txtBanRo;
+    private javax.swing.JTextField txtKhoa;
+    private javax.swing.JTextField txtTuKhoa;
+    private javax.swing.JTextField txtViTri;
     // End of variables declaration//GEN-END:variables
 }

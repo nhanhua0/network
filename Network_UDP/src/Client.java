@@ -17,16 +17,14 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Nhan
  */
 public class Client extends javax.swing.JFrame {
-    
+
     PlayFairCipher playFairCipher = new PlayFairCipher();
     int length = 0;
-    
 
     /**
      * Creates new form Main
@@ -56,6 +54,8 @@ public class Client extends javax.swing.JFrame {
         btnMaHoa = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtViTri = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtTuKhoa = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,6 +108,9 @@ public class Client extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Vị trí xuất hiện:");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("Từ Khoá:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,13 +134,18 @@ public class Client extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addGap(18, 18, 18)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtBanMa, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtBanMa, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtTuKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtViTri, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtViTri, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtVanBan, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(183, 183, 183)
@@ -164,7 +172,9 @@ public class Client extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(txtTuKhoa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuiServer, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,7 +183,7 @@ public class Client extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(txtBanMa, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(txtViTri, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -190,33 +200,48 @@ public class Client extends javax.swing.JFrame {
     }//GEN-LAST:event_txtVanBanActionPerformed
 
     private void btnGuiServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuiServerActionPerformed
-         try {
-            
+        try {
+
             DatagramSocket datagramSocket = new DatagramSocket();
+
             byte[] readBuffer = new byte[1024];
-          
-            byte[] writeBuffer = new byte[1024];
-           
+
+            byte[] writeBufferBanMa = new byte[1024];
+
+            byte[] writeBufferKhoa = new byte[1024];
+
+            byte[] writeBufferTuKhoa = new byte[1024];
 
             InetAddress host = InetAddress.getByName("localhost");
             int port = 5432;
 
-            String st = this.txtVanBan.getText();
-            writeBuffer = st.getBytes();
-          
-            DatagramPacket sendPacket = new DatagramPacket(writeBuffer, writeBuffer.length, host, port);
-            
+            String banMa = this.txtBanMa.getText();
+            String khoa = this.txtKhoa.getText();
+            String tuKhoa = this.txtTuKhoa.getText();
 
-            datagramSocket.send(sendPacket);
-          
+            writeBufferBanMa = banMa.getBytes();
+            writeBufferKhoa = khoa.getBytes();
+            writeBufferTuKhoa = tuKhoa.getBytes();
+
+            DatagramPacket sendPacketBanMa = new DatagramPacket(writeBufferBanMa, writeBufferBanMa.length, host, port);
+            DatagramPacket sendPacketKhoa = new DatagramPacket(writeBufferKhoa, writeBufferKhoa.length, host, port);
+            DatagramPacket sendPacketTuKhoa = new DatagramPacket(writeBufferTuKhoa, writeBufferTuKhoa.length, host, port);
+
+            datagramSocket.send(sendPacketBanMa);
+            datagramSocket.send(sendPacketKhoa);
+            datagramSocket.send(sendPacketTuKhoa);
 
 //
             DatagramPacket receivePacket1 = new DatagramPacket(readBuffer, readBuffer.length);
             datagramSocket.receive(receivePacket1);
-            String banma = new String(receivePacket1.getData());
-            System.out.println(banma);
-            txtBanMa.setText(banma);
-            
+            String viTri = new String(receivePacket1.getData());
+            if (viTri == "") {
+                JOptionPane.showMessageDialog(null, "Empty Positon!");
+            } else {
+                System.out.println(viTri);
+                txtViTri.setText(viTri);
+
+            }
 
             datagramSocket.close();
 
@@ -242,7 +267,6 @@ public class Client extends javax.swing.JFrame {
                     txtVanBan.setText(s);
                 }
 
-            
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -257,27 +281,26 @@ public class Client extends javax.swing.JFrame {
     private void btnMaHoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaHoaActionPerformed
         // TODO add your handling code here:
         String table[][];
-     
+
         String key = playFairCipher.parseString(txtKhoa.getText());
-        System.out.println("khoa"+txtKhoa);
-        if(key == ""){
+        System.out.println("khoa" + txtKhoa);
+        if (key == "") {
             JOptionPane.showMessageDialog(null, "please input key!");
         }
-        
+
         table = this.playFairCipher.cipherTable(key);
-        
+
         String banMa = playFairCipher.parseString(txtVanBan.getText());
-        System.out.println("banma: "+banMa);
-        if(key.equals("")){
+        System.out.println("banma: " + banMa);
+        if (key.equals("")) {
             JOptionPane.showMessageDialog(null, "please input key!");
         }
-        
+
         String outPut = playFairCipher.cipher(banMa);
-       
-        
+
         txtBanMa.setText(outPut);
         playFairCipher.keyTable(table);
-        
+
     }//GEN-LAST:event_btnMaHoaActionPerformed
 
     /**
@@ -325,8 +348,10 @@ public class Client extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txtBanMa;
     private javax.swing.JTextField txtKhoa;
+    private javax.swing.JTextField txtTuKhoa;
     private javax.swing.JTextField txtVanBan;
     private javax.swing.JTextField txtViTri;
     // End of variables declaration//GEN-END:variables
