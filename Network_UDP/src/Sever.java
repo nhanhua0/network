@@ -22,6 +22,7 @@ public class Sever extends javax.swing.JFrame {
      */
     public Sever() {
         initComponents();
+        
     }
 
     /**
@@ -237,7 +238,7 @@ public class Sever extends javax.swing.JFrame {
 
                 String chuoiViTri = timViTri.TimViTri(banRo, tuKhoa);
 
-                if (chuoiViTri == null) {
+                if (chuoiViTri == null || chuoiViTri =="") {
                     JOptionPane.showMessageDialog(null, "Empty Position!");
                 } else {
                     txtViTri.setText(chuoiViTri);

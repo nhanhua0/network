@@ -18,7 +18,7 @@ public class TimViTri {
 
         System.out.print("Vị trí xuất hiện:");
         for (int i = 0; i < s1.length();) {
-            int index = s1.indexOf(s2, i);
+            int index = s1.indexOf(s2, i);    
             if (index >= 0) {
                 count++;
                 i = index + 1;
@@ -29,6 +29,7 @@ public class TimViTri {
                 break;
             }
         }
+        System.out.println("return: "+viTri.length());
         return viTri;
     }
 
