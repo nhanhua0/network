@@ -174,28 +174,28 @@ public class Sever extends javax.swing.JFrame {
     private void BtnGuiClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuiClientActionPerformed
         try {
             while (true) {
-                DatagramSocket datagramSocket = new DatagramSocket(5432);
+                DatagramSocket datagramSocket = new DatagramSocket(4000);
 
                 // đưa này vào trong while
-                byte[] readBufferBanMa = new byte[1024];
+                byte[] readBuffer = new byte[1024];
 
-                byte[] readBufferKhoa = new byte[1024];
-
-                byte[] readBufferTuKhoa = new byte[1024];
+                
 
                 byte[] writeBuffer = new byte[1024];
 
-                DatagramPacket receivePacketBanMa = new DatagramPacket(readBufferBanMa, readBufferBanMa.length);
-                DatagramPacket receivePacketKhoa = new DatagramPacket(readBufferKhoa, readBufferKhoa.length);
-                DatagramPacket receivePacketTuKhoa = new DatagramPacket(readBufferTuKhoa, readBufferTuKhoa.length);
+                DatagramPacket receivePacket = new DatagramPacket(readBuffer, readBuffer.length);
+              
 
-                datagramSocket.receive(receivePacketBanMa);
-                datagramSocket.receive(receivePacketKhoa);
-                datagramSocket.receive(receivePacketTuKhoa);
+                datagramSocket.receive(receivePacket);
+             
 
-                String lineBanMa = new String(receivePacketBanMa.getData()).trim();
-                String lineKhoa = new String(receivePacketKhoa.getData()).trim();
-                String lineTuKhoa = new String(receivePacketTuKhoa.getData()).trim();
+                String line = new String(receivePacket.getData()).trim();
+                
+                String [] parts = line.split("@");
+                
+                String lineBanMa = parts[0];
+                String lineKhoa = parts[1];
+                String lineTuKhoa = parts[2];
 
                 txtBanMa.setText(lineBanMa);
                 txtKhoa.setText(lineKhoa);
@@ -245,8 +245,8 @@ public class Sever extends javax.swing.JFrame {
 
                 // bỏ cái writeBuffer này
                 //writeBuffer = line.getBytes();
-                InetAddress host = receivePacketBanMa.getAddress();
-                int port = receivePacketBanMa.getPort();
+                InetAddress host = receivePacket.getAddress();
+                int port = receivePacket.getPort();
 
                 writeBuffer = txtViTri.getText().getBytes();
 

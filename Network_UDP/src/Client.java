@@ -209,30 +209,22 @@ public class Client extends javax.swing.JFrame {
 
             byte[] readBuffer = new byte[1024];
 
-            byte[] writeBufferBanMa = new byte[1024];
-
-            byte[] writeBufferKhoa = new byte[1024];
-
-            byte[] writeBufferTuKhoa = new byte[1024];
+            byte[] writeBuffer = new byte[1024];
 
             InetAddress host = InetAddress.getByName("localhost");
-            int port = 5432;
+            int port = 4000;
 
             String banMa = this.txtBanMa.getText();
             String khoa = this.txtKhoa.getText();
             String tuKhoa = this.txtTuKhoa.getText();
 
-            writeBufferBanMa = banMa.getBytes();
-            writeBufferKhoa = khoa.getBytes();
-            writeBufferTuKhoa = tuKhoa.getBytes();
+            String gui = banMa + "@" + khoa + "@" + tuKhoa;
 
-            DatagramPacket sendPacketBanMa = new DatagramPacket(writeBufferBanMa, writeBufferBanMa.length, host, port);
-            DatagramPacket sendPacketKhoa = new DatagramPacket(writeBufferKhoa, writeBufferKhoa.length, host, port);
-            DatagramPacket sendPacketTuKhoa = new DatagramPacket(writeBufferTuKhoa, writeBufferTuKhoa.length, host, port);
+            writeBuffer = gui.getBytes();
+
+            DatagramPacket sendPacketBanMa = new DatagramPacket(writeBuffer, writeBuffer.length, host, port);
 
             datagramSocket.send(sendPacketBanMa);
-            datagramSocket.send(sendPacketKhoa);
-            datagramSocket.send(sendPacketTuKhoa);
 
 //
             DatagramPacket receivePacket1 = new DatagramPacket(readBuffer, readBuffer.length);
