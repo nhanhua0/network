@@ -20,11 +20,11 @@ import javax.swing.JOptionPane;
  *
  * @author Nhan
  */
-public class AutoSever extends Thread {
+public class Connect extends Thread {
 
-    private static DatagramSocket datagramSocket;
+    private  DatagramSocket datagramSocket;
 
-    public static void Connect() {
+    public  void Connect() {
         try {
             while (true) {
                 datagramSocket = new DatagramSocket(5432);
@@ -112,11 +112,9 @@ public class AutoSever extends Thread {
 
 //
         } catch (IOException ex) {
-            Logger.getLogger(AutoSever.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    public static void main(String[] args) {
-        Connect();
-    }
+    
+   
 }
