@@ -23,11 +23,16 @@ import javax.swing.JOptionPane;
 public class Connect extends Thread {
 
     private  DatagramSocket datagramSocket;
+    
+    public Connect() throws SocketException{
+        datagramSocket = new DatagramSocket(5432);
+    
+    }
 
     public  void Connect() {
         try {
             while (true) {
-                datagramSocket = new DatagramSocket(5432);
+               
                 byte[] readBuffer = new byte[1024];
 
 //                byte[] readBufferKhoa = new byte[1024];
