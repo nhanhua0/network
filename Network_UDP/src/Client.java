@@ -212,7 +212,7 @@ public class Client extends javax.swing.JFrame {
             byte[] writeBuffer = new byte[1024];
 
             InetAddress host = InetAddress.getByName("localhost");
-            int port = 4000;
+            int port = 5432;
 
             String banMa = this.txtBanMa.getText();
             String khoa = this.txtKhoa.getText();
