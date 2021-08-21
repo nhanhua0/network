@@ -20,11 +20,11 @@ import javax.swing.JOptionPane;
  *
  * @author Nhan
  */
-public class Connect extends Thread {
+public class Server extends Thread {
 
     private  DatagramSocket datagramSocket;
     
-    public Connect() throws SocketException{
+    public Server() throws SocketException{
         datagramSocket = new DatagramSocket(5432);
     
     }
@@ -117,7 +117,7 @@ public class Connect extends Thread {
 
 //
         } catch (IOException ex) {
-            Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
