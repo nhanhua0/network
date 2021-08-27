@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Service;
 
 import java.awt.Point;
 import java.util.Scanner;
 
-/**
- *
- * @author Admin
- */
+
 public class PlayFairCipher {
 
-    //length of digraph array  
+  
     private int length = 0;
-//creates a matrix for Playfair cipher   
+  
     private String[][] table;
 
     
@@ -29,7 +22,7 @@ public class PlayFairCipher {
         parse = parse.replace("J", "I");
         return parse;
     }
-//creates the cipher table based on some input string (already parsed)  
+//tạo bảng table dựa trên key được input 
 
     public String[][] cipherTable(String key) {
   
@@ -58,24 +51,24 @@ public class PlayFairCipher {
         table = playfairTable;
         return playfairTable;
     }
-//cipher: takes input (all upper-case), encodes it, and returns the output  
+//cipher: mã hoá 
 
     public String cipher(String in) {
         length = (int) in.length() / 2 + in.length() % 2;
  
-
+// chèn kí tự x vào chữ cái lặp nhau liên tiếp, lấy length
         for (int i = 0; i < (length - 1); i++) {
             if (in.charAt(2 * i) == in.charAt(2 * i + 1)) {
                 in = new StringBuffer(in).insert(2 * i + 1, 'X').toString();
                 length = (int) in.length() / 2 + in.length() % 2;
             }
         }
-//------------makes plaintext of even length--------------  
-//creates an array of digraphs  
+ 
+//tạo mảng chứ các cặp từ
         String[] digraph = new String[length];
 
         for (int j = 0; j < length; j++) {
-//checks the plaintext is of even length or not   
+//kiểm tra độ dài bản rõ là chẵn hay lẻ  
             if (j == (length - 1) && in.length() / 2 == (length - 1)) //if not addends X at the end of the plaintext    
             {
                 in = in + "X";
@@ -91,7 +84,7 @@ public class PlayFairCipher {
         }
         return out;
     }
-//---------------encryption logic-----------------  
+//---------------thuật toán mã hoá-----------------  
  
 
     public String[] encodeDigraph(String di[]) {
@@ -123,7 +116,7 @@ public class PlayFairCipher {
         }
         return encipher;
     }
-//-----------------------decryption logic---------------------  
+//-----------------------thuật toán giải mã---------------------  
 
 
     public String decode(String out) {
@@ -152,7 +145,7 @@ public class PlayFairCipher {
 
         return decoded;
     }
-// returns a point containing the row and column of the letter  
+// trả về toạ độ(điểm) được lấy từ bảng mã hoá(hàng, cột)
 
     public Point getPoint(char c) {
         Point pt = new Point(0, 0);
@@ -166,7 +159,7 @@ public class PlayFairCipher {
         return pt;
     }
 
-
+// in bảng mã hoá
     public void keyTable(String[][] printTable) {
         System.out.println("Playfair Cipher Key Matrix: ");
         System.out.println();
@@ -181,7 +174,7 @@ public class PlayFairCipher {
         }
         System.out.println();
     }
-//method that prints all the results  
+//in kết quả 
 
     public void printResults(String encipher, String dec) {
         System.out.print("Encrypted Message: ");
