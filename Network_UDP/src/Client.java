@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import java.util.regex.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -217,6 +218,9 @@ public class Client extends javax.swing.JFrame {
             String banMa = this.txtBanMa.getText();
             String khoa = this.txtKhoa.getText();
             String tuKhoa = this.txtTuKhoa.getText();
+            if(Pattern.matches("..s", banMa)){
+                JOptionPane.showInputDialog("Empty plaintext!");
+            }
 
             String gui = banMa + "@" + khoa + "@" + tuKhoa;
 
