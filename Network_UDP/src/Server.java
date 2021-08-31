@@ -91,14 +91,14 @@ public class Server extends Thread {
                 banRo = lastStringAfterSplit;
 
 ///Tìm vị trí///
-                TimViTri timViTri = new TimViTri();
+                Stuff stuff = new Stuff(banRo, tuKhoa);
 
                 String tuKhoa = playFairCipher.parseString(lineTuKhoa);
 
-                String chuoiViTri = timViTri.TimViTri(banRo, tuKhoa);
+                String chuoiViTri = stuff.TimViTri();
 
                 String vitri = chuoiViTri;
-                if ("".equals(vitri)) {
+                if (vitri.equals("")) {
                     JOptionPane.showMessageDialog(null, "Empty position");
                     System.out.println("Empty Positon!");
                 }

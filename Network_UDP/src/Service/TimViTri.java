@@ -6,25 +6,32 @@
 package Service;
 
 /**
- *
  * @author Admin
  */
-public class TimViTri {
+public class Stuff {
 
-    public String TimViTri(String s1, String s2) {
+    private String originalValue;
+    private String searchValue;
+
+    public TimViTri(String originalValue, String searchValue) {
+        this.originalValue = originalValue;
+        this.searchValue = searchValue;
+    }
+
+    public String TimViTri() {
 
         int count = 0;
         String viTri = "";
 
         System.out.print("Vị trí xuất hiện:");
-        for (int i = 0; i < s1.length();) {
-            int index = s1.indexOf(s2, i);
+        for (int i = 0; i < originalValue.length(); ) {
+            int index = originalValue.indexOf(searchValue, i);
             if (index >= 0) {
                 count++;
                 i = index + 1;
                 System.out.print(index + "; ");
                 viTri = viTri + String.valueOf(index) + "; ";
-                
+
             } else {
                 break;
             }
