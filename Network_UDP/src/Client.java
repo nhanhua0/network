@@ -258,9 +258,7 @@ public class Client extends javax.swing.JFrame {
                 byte[] bytes = new byte[fileInputStream.available()];
                 fileInputStream.read(bytes);
                 String s = new String(bytes, "utf-8");
-                for (byte b : bytes) {
-                    txtVanBan.setText(s);
-                }
+                txtVanBan.setText(s);
 
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
