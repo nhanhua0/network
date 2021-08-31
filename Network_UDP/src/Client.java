@@ -289,13 +289,13 @@ public class Client extends javax.swing.JFrame {
 
         table = this.playFairCipher.cipherTable(key);
 
-        String banMa = playFairCipher.parseString(txtVanBan.getText());
-        System.out.println("banma: " + banMa);
+        String banRo = playFairCipher.parseString(txtVanBan.getText());
+        System.out.println("banro: " + banRo);
         if (key.equals("")) {
             JOptionPane.showMessageDialog(null, "please input key!");
         }
 
-        String outPut = playFairCipher.cipher(banMa);
+        String outPut = playFairCipher.cipher(banRo);
 
         txtBanMa.setText(outPut);
         playFairCipher.keyTable(table);

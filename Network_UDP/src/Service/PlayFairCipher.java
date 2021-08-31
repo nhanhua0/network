@@ -57,7 +57,7 @@ public class PlayFairCipher {
         length = (int) in.length() / 2 + in.length() % 2;
  
 // chèn kí tự x vào chữ cái lặp nhau liên tiếp, lấy length
-        for (int i = 0; i < (length - 1); i++) {
+        for (int i = 0; i < (length-1); i++) {
             if (in.charAt(2 * i) == in.charAt(2 * i + 1)) {
                 in = new StringBuffer(in).insert(2 * i + 1, 'X').toString();
                 length = (int) in.length() / 2 + in.length() % 2;
@@ -69,7 +69,7 @@ public class PlayFairCipher {
 
         for (int j = 0; j < length; j++) {
 //kiểm tra độ dài bản rõ là chẵn hay lẻ  
-            if (j == (length - 1) && in.length() / 2 == (length - 1)) //if not addends X at the end of the plaintext    
+            if (j == (length -1 ) && in.length() / 2 == (length - 1)) //if not addends X at the end of the plaintext    
             {
                 in = in + "X";
             }
