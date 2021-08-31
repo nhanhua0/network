@@ -1,6 +1,6 @@
 
 import Service.PlayFairCipher;
-import Service.TimViTri;
+import Service.Stuff;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.net.DatagramPacket;

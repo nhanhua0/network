@@ -13,7 +13,7 @@ public class Stuff {
     private String originalValue;
     private String searchValue;
 
-    public TimViTri(String originalValue, String searchValue) {
+    public Stuff(String originalValue, String searchValue) {
         this.originalValue = originalValue;
         this.searchValue = searchValue;
     }
