@@ -295,10 +295,10 @@ public class Client extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "please input key!");
         }
 
-        String outPut = playFairCipher.cipher(banRo);
+        String banMa = playFairCipher.cipher(banRo);
 
-        txtBanMa.setText(outPut);
-        playFairCipher.keyTable(table);
+        txtBanMa.setText(banMa);
+        playFairCipher.printTable(table);
 
     }//GEN-LAST:event_btnMaHoaActionPerformed
 

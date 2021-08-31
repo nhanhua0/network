@@ -64,7 +64,7 @@ public class PlayFairCipher {
             }
         }
  
-//tạo mảng chứ các cặp từ
+//tạo mảng chứa các cặp từ
         String[] digraph = new String[length];
 
         for (int j = 0; j < length; j++) {
@@ -153,6 +153,7 @@ public class PlayFairCipher {
             for (int j = 0; j < 5; j++) {
                 if (c == table[i][j].charAt(0)) {
                     pt = new Point(i, j);
+                   
                 }
             }
         }
@@ -160,7 +161,7 @@ public class PlayFairCipher {
     }
 
 // in bảng mã hoá
-    public void keyTable(String[][] printTable) {
+    public void printTable(String[][] printTable) {
         System.out.println("Playfair Cipher Key Matrix: ");
         System.out.println();
 
